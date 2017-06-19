@@ -8,7 +8,7 @@ import threading
 
 import Queue
 
-from system import system
+from system import system_central
 from utils import file_utils
 
 from config import config
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     assert os.path.isfile(args.config_file)
 
     system_description = file_utils.load_module(args.config_file).system_description
-    system_object = system.System.construct_system(system_description)
+    system_object = system_central.System.construct_system(system_description)
     system_object.configure(config)
 
     # inputs = threading.Thread(target = system_object.input_loop)
